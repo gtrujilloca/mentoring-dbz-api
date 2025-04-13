@@ -1,15 +1,15 @@
-import { inject } from "@angular/core";
-import { CharactersGateway } from "@/domain/gateways/characters-gateway";
-import { CharactersResponse, Character } from "@/core/interfaces/character.interface";
+import { inject } from '@angular/core'
+import { CharactersGateway } from '@/domain/gateways/characters-gateway'
+import { CharactersResponse, Character } from '@/core/interfaces/character.interface'
 
 export class CharactersUseCase {
-    private _charactersGateway = inject(CharactersGateway);
+  private readonly _charactersGateway = inject(CharactersGateway)
 
-    async getCharacters(): Promise<CharactersResponse> {
-        return await this._charactersGateway.getCharacters();
-    }
+  async getCharacters (): Promise<CharactersResponse> {
+    return await this._charactersGateway.getCharacters()
+  }
 
-    async getCharacterById(id: number): Promise<Character> {
-        return await this._charactersGateway.getCharacterById(id);
-    }
+  async getCharacterById (id: number): Promise<Character> {
+    return await this._charactersGateway.getCharacterById(id)
+  }
 }

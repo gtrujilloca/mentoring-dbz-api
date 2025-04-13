@@ -1,10 +1,10 @@
 
-import { environment } from 'src/environments/environment';
-const { base_api_url } = environment;
+import { environment } from 'src/environments/environment'
+const { baseApiUrl } = environment
 
 export enum DbzResources {
-    PLANETS = 'planets',
-    CHARACTERS = 'characters'
+  PLANETS = 'planets',
+  CHARACTERS = 'characters'
 }
-export const CHARACTERS_PATH = `${base_api_url}/${DbzResources.CHARACTERS}`;
-export const PLANETS_PATH = `${base_api_url}/${DbzResources.PLANETS}`;
+export const CHARACTERS_PATH = `${baseApiUrl}/${DbzResources.CHARACTERS}`
+export const PLANETS_PATH = `${baseApiUrl}/${DbzResources.PLANETS}`

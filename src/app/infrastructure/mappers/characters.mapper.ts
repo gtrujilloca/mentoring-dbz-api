@@ -1,7 +1,7 @@
-import { CharacterApi, CharactersResponseAPI } from "@/core/interfaces/character-api.interface";
-import { Character, CharactersResponse } from "@/core/interfaces/character.interface";
+import { CharacterApi, CharactersResponseAPI } from '@/core/interfaces/character-api.interface'
+import { Character, CharactersResponse } from '@/core/interfaces/character.interface'
 
-export function mapToCharacters(response: CharactersResponseAPI): CharactersResponse {
+export function mapToCharacters (response: CharactersResponseAPI): CharactersResponse {
   const {
     items,
     links,
@@ -15,26 +15,26 @@ export function mapToCharacters(response: CharactersResponseAPI): CharactersResp
   }
 }
 
-export function mapToCharactersError(): CharactersResponse {
+export function mapToCharactersError (): CharactersResponse {
   return {
     characters: [],
     links: {
       first: '',
       last: '',
       next: '',
-      previous: '',
+      previous: ''
     },
     meta: {
       totalItems: 0,
       itemCount: 0,
       itemsPerPage: 0,
       totalPages: 0,
-      currentPage: 0,
+      currentPage: 0
     }
   }
 }
 
-export function mapToCharacter(response: CharacterApi): Character {
+export function mapToCharacter (response: CharacterApi): Character {
   const {
     id,
     name,
@@ -45,8 +45,8 @@ export function mapToCharacter(response: CharacterApi): Character {
     description,
     image,
     affiliation,
-    deletedAt,
-  } = response;
+    deletedAt
+  } = response
 
   return {
     id,
@@ -58,11 +58,11 @@ export function mapToCharacter(response: CharacterApi): Character {
     description,
     image,
     affiliation,
-    deletedAt,
+    deletedAt
   }
 }
 
-export function mapToCharacterError(): Character {
+export function mapToCharacterError (): Character {
   return {
     id: 0,
     name: '',
@@ -73,6 +73,6 @@ export function mapToCharacterError(): Character {
     description: '',
     image: '',
     affiliation: '',
-    deletedAt: null,
+    deletedAt: null
   }
 }
