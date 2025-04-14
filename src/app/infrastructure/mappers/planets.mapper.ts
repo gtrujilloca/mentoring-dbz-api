@@ -1,5 +1,5 @@
-import { PlanetApi, PlanetsResponseAPI } from '@/core/interfaces/planets-api.interface'
-import { Planet, PlanetsResponse } from '@/core/interfaces/planets.interface'
+import type { PlanetApi, PlanetsResponseAPI } from '@/core/interfaces/planets-api.interface'
+import type { Planet, PlanetsResponse } from '@/core/interfaces/planets.interface'
 
 export function mapToPlanets (response: PlanetsResponseAPI): PlanetsResponse {
   const {

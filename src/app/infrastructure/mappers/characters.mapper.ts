@@ -1,5 +1,5 @@
-import { CharacterApi, CharactersResponseAPI } from '@/core/interfaces/character-api.interface'
-import { Character, CharactersResponse } from '@/core/interfaces/character.interface'
+import type { CharacterApi, CharactersResponseAPI } from '@/core/interfaces/character-api.interface'
+import type { Character, CharactersResponse } from '@/core/interfaces/character.interface'
 
 export function mapToCharacters (response: CharactersResponseAPI): CharactersResponse {
   const {

@@ -1,4 +1,12 @@
-<dbz-card></dbz-card>
-<dbz-card></dbz-card>
-<dbz-card></dbz-card>
-<dbz-card></dbz-card>
+<section class="character-grid">
+  @for (character of characters(); track character.id ) {
+    <dbz-card
+      [title] ="character.name"
+      [description] ="character.description"
+      [img] ="character.image"
+      [tagline] ="character.race"
+      [tagline2] ="character.affiliation"
+    />
+  }
+</section>
+

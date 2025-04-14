@@ -1,6 +1,6 @@
 import { inject } from '@angular/core'
 import { PlanetsGateway } from '@/domain/gateways/planets-gateway'
-import { PlanetsResponse, Planet } from '@/core/interfaces/planets.interface'
+import type { PlanetsResponse, Planet } from '@/core/interfaces/planets.interface'
 
 export class PlanetsUseCase {
   private readonly _planetsGateway = inject(PlanetsGateway)

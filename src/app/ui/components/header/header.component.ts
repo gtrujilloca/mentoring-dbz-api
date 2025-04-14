@@ -1,8 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'dbz-header',
-  imports: [],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+  ],
   templateUrl: './header.component.html',
   styles: `
     :host {

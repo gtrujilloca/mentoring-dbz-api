@@ -1,4 +1,4 @@
-import { Planet, PlanetsResponse } from '@/core/interfaces/planets.interface'
+import type { Planet, PlanetsResponse } from '@/core/interfaces/planets.interface'
 
 export abstract class PlanetsGateway {
   abstract getPlanets (): Promise<PlanetsResponse>

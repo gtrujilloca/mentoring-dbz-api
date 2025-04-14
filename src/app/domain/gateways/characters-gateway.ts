@@ -1,4 +1,4 @@
-import { Character, CharactersResponse } from '@/core/interfaces/character.interface'
+import type { Character, CharactersResponse } from '@/core/interfaces/character.interface'
 
 export abstract class CharactersGateway {
   abstract getCharacters (): Promise<CharactersResponse>

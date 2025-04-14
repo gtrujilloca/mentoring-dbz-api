@@ -1,0 +1,11 @@
+<section class="planet-grid">
+  @for (planet of planets(); track planet.id ) {
+    <dbz-card
+      [title] ="planet.name"
+      [description] ="planet.description"
+      [img] ="planet.image"
+      [tagline2] ="planet.isDestroyed ? 'Destroyed' : 'Alive'"
+    />
+  }
+</section>
+

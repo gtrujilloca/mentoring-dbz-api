@@ -1,6 +1,6 @@
 import { inject } from '@angular/core'
 import { CharactersGateway } from '@/domain/gateways/characters-gateway'
-import { CharactersResponse, Character } from '@/core/interfaces/character.interface'
+import type { CharactersResponse, Character } from '@/core/interfaces/character.interface'
 
 export class CharactersUseCase {
   private readonly _charactersGateway = inject(CharactersGateway)
