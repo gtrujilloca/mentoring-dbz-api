@@ -1,21 +1,29 @@
 import type { Character } from "@/core/interfaces/character.interface";
+import { CharactersGateway } from "@/domain/gateways/characters-gateway";
 import { CharactersUseCase } from "@/domain/use-cases/characters-usecase";
+import { CharactersService } from "@/infrastructure/driver-adapters/characters.service";
 import { CardComponent } from "@/ui/components/card/card.component";
 import {
   ChangeDetectionStrategy,
   Component,
-  inject,
   type OnInit,
+  inject,
   signal,
 } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "dbz-characters",
   imports: [
+    RouterLink,
     CardComponent,
   ],
   providers: [
     CharactersUseCase,
+    // {
+    //   provide: CharactersGateway,
+    //   useExisting: CharactersService,
+    // }
   ],
   templateUrl: "./characters.component.html",
   styles: `

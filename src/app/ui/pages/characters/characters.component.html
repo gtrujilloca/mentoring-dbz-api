@@ -1,12 +1,14 @@
 <section class="character-grid">
   @for (character of characters(); track character.id ) {
-    <dbz-card
-      [title] ="character.name"
-      [description] ="character.description"
-      [img] ="character.image"
-      [tagline] ="character.race"
-      [tagline2] ="character.affiliation"
-    />
+    <a [routerLink]="['/characters', character.id]">
+      <dbz-card
+        [title] ="character.name"
+        [description] ="character.description"
+        [img] ="character.image"
+        [tagline] ="character.race"
+        [tagline2] ="character.affiliation"
+      />
+    </a>
   }
 </section>
 

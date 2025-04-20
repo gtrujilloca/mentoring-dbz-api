@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { inject, Injectable } from '@angular/core'
+import { inject, Injectable, type OnDestroy } from '@angular/core'
 
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom'
 import { of } from 'rxjs/internal/observable/of'
@@ -12,13 +12,24 @@ import { CharactersGateway } from '@/domain/gateways/characters-gateway'
 import { mapToCharacters, mapToCharactersError } from '@/infrastructure/mappers/characters.mapper'
 import { CHARACTERS_PATH } from '@/infrastructure/paths'
 import { mapToCharacter, mapToCharacterError } from '../mappers/characters.mapper'
+import { excludeJwt } from '@/ui/shared/interceptors/jwt.context'
 
 @Injectable()
 
-export class CharactersService extends CharactersGateway {
+export class CharactersService extends CharactersGateway implements OnDestroy {
   private readonly _httpClient = inject(HttpClient)
+  private readonly id = new Date().getTime()
 
-  async getCharacters (): Promise<CharactersResponse> {
+  constructor() {
+    super()
+    console.log('CharactersService', this.id)
+  }
+
+  ngOnDestroy(): void {
+    console.log('CharactersService', this.id, 'destroyed')
+  }
+
+  async getCharacters(): Promise<CharactersResponse> {
     return await firstValueFrom(
       this._httpClient.get<CharactersResponseAPI>(CHARACTERS_PATH).pipe(
         switchMap(response => of(mapToCharacters(response))),
@@ -26,9 +37,9 @@ export class CharactersService extends CharactersGateway {
       ))
   }
 
-  async getCharacterById (id: number): Promise<Character> {
+  async getCharacterById(id: number): Promise<Character> {
     return await firstValueFrom(
-      this._httpClient.get<CharacterApi>(`${CHARACTERS_PATH}/${id}`).pipe(
+      this._httpClient.get<CharacterApi>(`${CHARACTERS_PATH}/${id}`, { context: excludeJwt() }).pipe(
         switchMap(response => of(mapToCharacter(response))),
         catchError(_ => of(mapToCharacterError()))
       ))
