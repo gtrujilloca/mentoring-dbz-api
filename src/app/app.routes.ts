@@ -15,7 +15,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'characters',
+    redirectTo: 'planets',
     pathMatch: 'full'
   }
 ]
