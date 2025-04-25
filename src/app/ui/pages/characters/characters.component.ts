@@ -34,6 +34,10 @@ import { RouterLink } from "@angular/router";
         gap: 1rem;
         margin: 1rem;
       }
+
+      h1 {
+        color: #fff;
+      }
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -47,5 +51,9 @@ export default class CharactersComponent implements OnInit {
       console.log(response);
       this.characters.set(response.characters);
     });
+  }
+
+  handleCharacter(character: string) {
+    console.log(character);
   }
 }

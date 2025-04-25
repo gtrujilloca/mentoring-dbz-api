@@ -25,10 +25,10 @@ const characterRoutes: Routes = [
   providers: [
     provideRouter(characterRoutes),
     // CharactersService,
-    {
-      provide: CharactersGateway,
-      useClass: CharactersService
-    },
+    // {
+    //   provide: CharactersGateway,
+    //   useClass: CharactersService
+    // },
   ],
 })
 export default class CharactersModule { }

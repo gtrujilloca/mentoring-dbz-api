@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'dbz-card',
@@ -23,4 +23,10 @@ export class CardComponent {
   @Input() img = '';
   @Input() tagline = '';
   @Input() tagline2 = '';
+
+  @Output() onCharacterClicked = new EventEmitter<string>();
+
+  handleCharacter(character: string) {
+    this.onCharacterClicked.emit(character);
+  }
 }

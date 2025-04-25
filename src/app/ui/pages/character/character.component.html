@@ -1,2 +1,12 @@
 
 <h1>Character {{ character()?.name }}</h1>
+
+@for (character of characterList; track character) {
+  <p>{{ character }}</p>
+}
+
+
+<button
+class="bg-gray-800 p-4 rounded text-white"
+(click)="handleChangeServiceData()"
+>Update data</button>
