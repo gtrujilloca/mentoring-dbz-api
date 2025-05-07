@@ -1,4 +1,8 @@
 <dbz-header />
 <router-outlet />
 
+@if(isLoading$ | async) {
+  <!-- <dbz-loading /> -->
+}
+
 <button (click)="handleLoadCharacters()">load characters</button>

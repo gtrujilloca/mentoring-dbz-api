@@ -3,7 +3,7 @@ import { PlanetsUseCase } from '@/domain/use-cases/planets-usecase';
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { dbzApiActions } from '../actions/dbz-api.actions';
-import { catchError, exhaustMap, from, map, of } from 'rxjs';
+import { catchError, exhaustMap, from, map, of, throwError } from 'rxjs';
 
 @Injectable()
 export class DbzEffects {
@@ -21,10 +21,10 @@ export class DbzEffects {
               characters: response.characters,
             })
           ),
-          catchError(() =>
+          catchError((error) =>
             of(
               dbzApiActions.getCharactersError({
-                error: 'Something went wrong loading characters',
+                error: error.message
               })
             )
           )

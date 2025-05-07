@@ -3,6 +3,7 @@ import { AppComponent } from './app.component'
 import { By } from '@angular/platform-browser'
 import { HeaderComponent } from './ui/components/header/header.component'
 import { RouterModule } from '@angular/router'
+import { provideStore } from '@ngrx/store'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -10,8 +11,11 @@ describe('AppComponent', () => {
       imports: [
         AppComponent,
         HeaderComponent,
-        RouterModule.forRoot([])
-      ]
+        RouterModule.forRoot([]),
+      ],
+      providers: [
+        provideStore(),
+      ],
     }).compileComponents()
   })
 

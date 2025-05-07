@@ -1,3 +1,5 @@
+<h1 class="text-red-500 text-xl">Character Error: {{ characterErrorLoad$ | async }}</h1>
+
 <section class="character-grid">
   @for (character of characters(); track character.id ) {
     <a [routerLink]="['/characters', character.id]">
