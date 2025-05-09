@@ -6,6 +6,10 @@ import { routes } from './app.routes'
 import { PlanetsGateway } from './domain/gateways/planets-gateway'
 import { PlanetsService } from './infrastructure/driver-adapters/planets.service'
 import { jwtInterceptor } from './ui/shared/interceptors/jwt.interceptor'
+import { DbzStore } from './state/store'
+import { CharactersUseCase } from './domain/use-cases/characters-usecase'
+import { CharactersGateway } from './domain/gateways/characters-gateway'
+import { CharactersService } from './infrastructure/driver-adapters/characters.service'
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,6 +22,12 @@ export const appConfig: ApplicationConfig = {
     {
       provide: PlanetsGateway,
       useClass: PlanetsService
-    }
+    },
+    CharactersUseCase,
+    {
+      provide: CharactersGateway,
+      useClass: CharactersService
+    },
+    DbzStore,
   ]
 }

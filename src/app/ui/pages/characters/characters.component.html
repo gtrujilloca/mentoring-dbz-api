@@ -1,3 +1,5 @@
+<h1>Character length: {{charactersLength()}}</h1>
+<h1>Character error: {{charactersError()}}</h1>
 <section class="character-grid">
   @for (character of characters(); track character.id ) {
     <a [routerLink]="['/characters', character.id]">
